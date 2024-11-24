@@ -1,5 +1,9 @@
 .dockerignore
 .gitignore
+.env
 node_modules
 Dockerfile
+dev.Dockerfile
+*.yaml
+*.rest
 README.md
