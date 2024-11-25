@@ -1,6 +1,6 @@
 services:
   app:
-    image: '12.5'
+    image: 'todo-backend'
     build: .
     ports:
       - 3000:3000

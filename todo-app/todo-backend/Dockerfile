@@ -1,7 +1,12 @@
-FROM node:20
-ENV NODE_ENV=production
+FROM node:20 AS base
 WORKDIR /usr/src/app
-COPY --chown=node:node . .
+COPY . .
 RUN npm ci --omit=dev
-USER node
-CMD npm start
+
+FROM gcr.io/distroless/nodejs20-debian12:nonroot
+ENV NODE_ENV=production
+USER nonroot
+COPY --from=base --chown=nonroot:nonroot /usr/src/app /app
+WORKDIR /app
+EXPOSE 3000
+CMD ["./bin/www"]
