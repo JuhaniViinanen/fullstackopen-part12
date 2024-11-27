@@ -1,6 +1,6 @@
-mongo_data/
-mongo_configdb/
-redis_data/
+mongo_data*/
+mongo_configdb*/
+redis_data*/
 # Logs
 logs
 *.log

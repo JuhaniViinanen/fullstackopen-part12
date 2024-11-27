@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:20.18.1-bookworm-slim
 ENV NODE_ENV=development
 WORKDIR /usr/src/app
 COPY . .
