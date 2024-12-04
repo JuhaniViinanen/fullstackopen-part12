@@ -9,4 +9,3 @@ dev.Dockerfile
 README.md
 mongo_data*/
 mongo_configdb*/
-redis_data*/

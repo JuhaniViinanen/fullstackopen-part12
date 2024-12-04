@@ -1,0 +1,37 @@
+GET http://localhost:8080/api/blogs HTTP/1.1
+
+###
+GET http://localhost:8080/api/nothing HTTP/1.1
+
+###
+POST http://localhost:8080/api/blogs HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Test title",
+    "author": "Spongebob Squarepants",
+    "url": "no url, so sad :'(",
+    "likes": 0
+}
+
+###
+GET http://localhost:8080/api/users HTTP/1.1
+
+###
+POST http://localhost:8080/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "squarebob117",
+    "password": "squarepants",
+    "name": "Spongebob"
+}
+
+###
+POST http://localhost:8080/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "squarebob117",
+    "password": "verysecret"
+}
