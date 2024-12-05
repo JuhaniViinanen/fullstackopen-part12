@@ -1,21 +1,15 @@
 services:
   app:
-    image: myapp-front-dev
+    image: myapp-front
     build:
       context: ./frontend
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ./frontend:/usr/src/app
-    environment:
-      - VITE_BACKEND_URL=http://localhost:8080
+      dockerfile: Dockerfile
 
   server:
-    image: myapp-back-dev
+    image: myapp-back
     build:
       context: ./backend
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ./backend:/usr/src/app
+      dockerfile: Dockerfile
     environment:
       - MONGODB_URI=mongodb://the_username:the_password@mongo:27017/the_database
       - PORT=3000
@@ -31,13 +25,13 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes: 
       - ./backend/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-      - ./backend/mongo_data_dev:/data/db
-      - ./backend/mongo_configdb_dev:/data/configdb
+      - ./backend/mongo_data:/data/db
+      - ./backend/mongo_configdb:/data/configdb
 
   nginx:
     image: nginx:1.20.1
     volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     depends_on:
